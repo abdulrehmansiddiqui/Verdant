@@ -1,0 +1,35 @@
+import { StyleSheet, Text, View } from 'react-native';
+
+import { colors, typography } from '@/shared/theme';
+
+type DividerProps = {
+  label?: string;
+};
+
+export function Divider({ label = 'OR' }: DividerProps) {
+  return (
+    <View style={styles.container}>
+      <View style={styles.line} />
+      <Text style={styles.label}>{label}</Text>
+      <View style={styles.line} />
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+    marginVertical: 16,
+  },
+  line: {
+    flex: 1,
+    height: 1,
+    backgroundColor: colors.border,
+  },
+  label: {
+    ...typography.label,
+    color: colors.mutedForeground,
+  },
+});
